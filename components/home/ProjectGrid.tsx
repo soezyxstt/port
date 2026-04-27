@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { Link } from "next-view-transitions";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import projectsData from "@/data/projects.json";
 
-const container = {
+const container: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -15,7 +15,7 @@ const container = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
