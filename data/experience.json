@@ -1,0 +1,130 @@
+[
+  {
+    "company": "Himpunan Mahasiswa Mesin (HMM) ITB",
+    "location": "Bandung, Jawa Barat",
+    "positions": [
+      {
+        "role": "Head of Information and Technology Development Sub Bureau",
+        "period": "Aug 2025 - Present",
+        "glimpse": "Leading digital transformation and optimizing information flow across organizational stakeholders."
+      },
+      {
+        "role": "Web Development Engineer",
+        "period": "Aug 2024 - Jul 2025",
+        "glimpse": "Served as a technical bridge for digital platforms and front-end engineering."
+      },
+      {
+        "role": "Member",
+        "period": "Oct 2023 - Jul 2024",
+        "glimpse": "Active engagement in internal departments and organizational operations."
+      }
+    ]
+  },
+  {
+    "company": "Forum Mahasiswa Garut (FORMAT) ITB",
+    "location": "Garut/Bandung",
+    "positions": [
+      {
+        "role": "President",
+        "period": "Jan 2025 - Aug 2025",
+        "glimpse": "Revitalized organization after 5 years, focusing on regional student empowerment."
+      },
+      {
+        "role": "Head of Academic Division",
+        "period": "Apr 2024 - Jan 2025",
+        "glimpse": "Orchestrated academic support and peer mentoring for first-year engineering students."
+      },
+      {
+        "role": "Head of Event Organizer",
+        "period": "Dec 2023 - Mar 2024",
+        "glimpse": "Led educational roadshows to promote higher education aspirations across Garut."
+      }
+    ]
+  },
+  {
+    "company": "Unit Robotika ITB",
+    "location": "Bandung, Jawa Barat",
+    "positions": [
+      {
+        "role": "Mechanical Engineer",
+        "period": "Jun 2022 - Jul 2025",
+        "glimpse": "Specialized in CAD modeling and structural design using SOLIDWORKS."
+      },
+      {
+        "role": "Chief Executive of Sekolah URO",
+        "period": "Aug 2024 - Feb 2025",
+        "glimpse": "Managed organizational training and leadership development for new members."
+      },
+      {
+        "role": "Human Resources Manager",
+        "period": "Oct 2023 - May 2024",
+        "glimpse": "Coordinated recruitment and internal member development programs."
+      }
+    ]
+  },
+  {
+    "company": "Institut Teknologi Bandung (ITB)",
+    "location": "Bandung, Jawa Barat",
+    "positions": [
+      {
+        "role": "Statics and Structural Analysis Academic Assistant",
+        "period": "Mar 2024 - Jun 2024",
+        "glimpse": "Facilitated undergraduate learning in structural mechanics and equilibrium principles."
+      },
+      {
+        "role": "Computational Thinking Practicum Assistant",
+        "period": "Jul 2023 - Nov 2023",
+        "glimpse": "Guided students in algorithm logic and technical problem-solving."
+      }
+    ]
+  },
+  {
+    "company": "Paguyuban Mojang Jajaka Garut",
+    "location": "Garut, Jawa Barat",
+    "positions": [
+      {
+        "role": "Research And Development Officer",
+        "period": "Nov 2023 - Nov 2025",
+        "glimpse": "Conducted community-focused R&D and team-based regional development."
+      },
+      {
+        "role": "Event Coordinator",
+        "period": "Aug 2024",
+        "glimpse": "Coordinated logistics and leadership for major regional events."
+      }
+    ]
+  },
+  {
+    "company": "Excelsis Learning Center (ELC)",
+    "location": "Jatinangor",
+    "positions": [
+      {
+        "role": "Academic Physics & Math Tutor",
+        "period": "Apr 2024 - Present",
+        "glimpse": "Providing technical instruction in physics and mathematics for engineering students."
+      }
+    ]
+  },
+  {
+    "company": "Pemira KM ITB",
+    "location": "Bandung, Jawa Barat",
+    "positions": [
+      {
+        "role": "Head of Information Technology Department",
+        "period": "Nov 2023 - Apr 2024",
+        "glimpse": "Developed web infrastructure and media platforms for university-wide elections."
+      }
+    ]
+  },
+  {
+    "company": "OSKM ITB 2023",
+    "location": "Bandung, Jawa Barat",
+    "positions": [
+      {
+        "role": "Frontend Web Developer Staff",
+        "period": "Apr 2023 - Aug 2023",
+        "glimpse": "Engineered digital platforms to support student orientation activities."
+      }
+    ]
+  }
+]

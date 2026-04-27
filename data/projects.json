@@ -1,0 +1,92 @@
+[
+  {
+    "id": "fess",
+    "title": "FESS Control & HMI",
+    "category": "Mechatronics / IoT",
+    "image": "/work/fess.png",
+    "link": "https://fess-hmi.vercel.app/",
+    "stack": ["React", "MQTT", "ESP32"],
+    "description": "High-precision HMI for a levitating vertical Flywheel Energy Storage System, visualizing real-time vibration and energy data."
+  },
+  {
+    "id": "gumelar",
+    "title": "Ormada Gumelar",
+    "category": "Community / Web",
+    "image": "/work/gumelar.png",
+    "link": "https://www.ormadagumelar.com/",
+    "stack": ["Payload CMS", "Next.js"],
+    "description": "A cultural hub for the Garut region's student organizations, focusing on regional identity and accessibility."
+  },
+  {
+    "id": "hmmitb",
+    "title": "HMM ITB Digital Portal",
+    "category": "Full-Stack",
+    "image": "/work/hmmitb.png",
+    "link": "https://staging.hmmitb.com/",
+    "stack": ["Next.js", "Supabase", "Tailwind CSS"],
+    "description": "The digital core of the Mechanical Engineering Student Union, streamlining organizational workflows and external outreach."
+  },
+  {
+    "id": "iam-itb",
+    "title": "IAM ITB Alumni Portal",
+    "category": "Web Design",
+    "image": "/work/iam-itb.png",
+    "link": "https://iam-omega.vercel.app/",
+    "stack": ["Framer Motion", "Minimalism"],
+    "description": "A sophisticated digital space for the Mechanical Engineering Alumni Network, emphasizing legacy and connection."
+  },
+  {
+    "id": "iot-convyor",
+    "title": "IIoT Conveyor Monitoring",
+    "category": "Industrial / IoT",
+    "image": "/work/iot-convyor.png",
+    "link": "https://iiot-conveyor-hmi.vercel.app/",
+    "stack": ["Next.js", "WebSockets", "Sensors"],
+    "description": "Industrial monitoring system for conveyor operations, bridging mechanical hardware with real-time digital analytics."
+  },
+  {
+    "id": "lms-hmmitb",
+    "title": "HMM ITB Dashboard",
+    "category": "Internal Tools",
+    "image": "/work/lms-hmmitb.png",
+    "link": "https://staging.hmmitb.com/dashboard",
+    "stack": ["Auth", "Database Design"],
+    "description": "Administrative engine managing information flow and member management for the executive board."
+  },
+  {
+    "id": "mfest",
+    "title": "Mechanical Festival 2025",
+    "category": "Event / Branding",
+    "image": "/work/mfest.png",
+    "link": "https://m-fest-theta.vercel.app/",
+    "stack": ["Tailwind v4", "Branding"],
+    "description": "Dynamic landing page for a premier campus festival, focused on engagement and visual storytelling."
+  },
+  {
+    "id": "pemirakmitb",
+    "title": "Pemira KM ITB 2024",
+    "category": "Web Infrastructure",
+    "image": "/work/pemirakmitb.png",
+    "link": "https://pemirakmitb.vercel.app/",
+    "stack": ["Next.js", "High-Traffic"],
+    "description": "Official election platform for the ITB student body, serving thousands of users with high reliability."
+  },
+  {
+    "id": "zyx",
+    "title": "ZYX Education",
+    "category": "EdTech",
+    "image": "/work/zyx.png",
+    "link": "https://zyx-edu.vercel.app/",
+    "stack": ["React", "LMS"],
+    "description": "Interactive learning management platform designed for structured academic content delivery."
+  },
+  {
+    "id": "sentuhundang",
+    "title": "Sentuh Undang",
+    "category": "SaaS / Digital Invites",
+    "image": "/work/sentuhundang.png",
+    "link": "https://sentuhundang.vercel.app/",
+    "stack": ["Next.js", "Drizzle ORM"],
+    "description": "Premium digital invitation service with elegant transitions and automated guest management."
+  }
+]
