@@ -5,6 +5,7 @@ import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
         lang="en"
         className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       >
+      <GoogleTagManager gtmId="G-T7KEWHLD9S" />
         <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">
           <SmoothScroll>
             <Header />
