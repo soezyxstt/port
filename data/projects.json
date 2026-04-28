@@ -4,7 +4,7 @@
     "title": "HMM ITB Digital Portal",
     "category": "Full-Stack Ecosystem",
     "image": "/work/hmmitb.png",
-    "link": "https://staging.hmmitb.com/",
+    "link": "https://hmmitb.com/",
     "stack": ["Next.js", "Supabase", "Auth.js"],
     "description": "The primary digital infrastructure for the Mechanical Engineering Student Union at ITB. Streamlines internal communication and data management for a large-scale engineering community through secure member authentication and a custom CRM."
   },
@@ -40,7 +40,7 @@
     "title": "Executive Member Dashboard",
     "category": "Internal Admin",
     "image": "/work/lms-hmmitb.png",
-    "link": "https://staging.hmmitb.com/dashboard",
+    "link": "https://hmmitb.com/dashboard",
     "stack": ["React", "PostgreSQL", "Drizzle"],
     "description": "A specialized administrative dashboard providing granular control over organizational workflows. Features automated reporting, member dynamics tracking, and document management specifically for HMM ITB's leadership."
   },
