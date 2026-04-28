@@ -1,5 +1,27 @@
 [
   {
+    "company": "GUMELAR (Guyub Mahasiswa Lembur Garut)",
+    "location": "Garut, Jawa Barat",
+    "positions": [
+      {
+        "role": "Chairman (Pupuhu)",
+        "period": "Feb 2026 - May 2026",
+        "glimpse": "Orchestrated a collaborative forum for 11+ regional student organizations, managing social services, literacy programs, and community talkshows."
+      }
+    ]
+  },
+  {
+    "company": "PLN Indonesia Power Banten I Suralaya Unit 8",
+    "location": "Cilegon, Banten",
+    "positions": [
+      {
+        "role": "Primary Energy and Ash Maintenance Intern",
+        "period": "Jun 2025 - Aug 2025",
+        "glimpse": "Performed mechanical maintenance on coal-handling assets and conducted critical strength analysis on belt conveyor components."
+      }
+    ]
+  },
+  {
     "company": "Himpunan Mahasiswa Mesin (HMM) ITB",
     "location": "Bandung, Jawa Barat",
     "positions": [

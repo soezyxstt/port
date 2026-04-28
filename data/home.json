@@ -1,0 +1,22 @@
+{
+  "statusText": "Open to impactful collaborations",
+  "badgeText": "Final Year · ITB Bandung",
+  "firstName": "Adi Haditya",
+  "lastName": "Nursyam.",
+  "introPrefix": "A",
+  "introSuffix": "Mechanical Engineering student focused on integrating maintenance systems with modern web technology.",
+  "rotatingHighlights": [
+    "CMMS-minded builder",
+    "systems thinker",
+    "data-driven problem solver"
+  ],
+  "locationLabel": "Based in Indonesia",
+  "timezoneLabel": "GMT+7 · West Java",
+  "ribbonSkills": [
+    "Next.js",
+    "Python",
+    "SQL",
+    "Asset Management",
+    "React"
+  ]
+}

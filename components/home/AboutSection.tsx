@@ -1,7 +1,11 @@
 "use client";
 
 import experienceData from "@/data/experience.json";
+import aboutData from "@/data/about.json";
+import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 import { motion, Variants } from "framer-motion";
+import { useMemo, useState } from "react";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -19,87 +23,187 @@ const item: Variants = {
 };
 
 export function AboutSection() {
+  const [openSection, setOpenSection] = useState<Record<string, boolean>>({
+    Education: true,
+    Experience: true,
+    Organizations: true,
+  });
+  const [openRole, setOpenRole] = useState<string | null>(null);
+
+  const groupedRows = useMemo(() => {
+    const educationRows = [
+      {
+        key: "education-itb",
+        period: `${aboutData.education.institution}`,
+        role: aboutData.education.major,
+        org: "Education",
+        details: aboutData.education.description,
+      },
+      ...experienceData
+        .filter((entry) => entry.company.includes("Institut Teknologi Bandung"))
+        .flatMap((entry) =>
+          entry.positions.map((position) => ({
+            key: `${entry.company}-${position.role}-${position.period}`,
+            period: position.period,
+            role: position.role,
+            org: entry.company,
+            details: position.glimpse,
+          })),
+        ),
+    ];
+
+    const experienceRows = experienceData
+      .filter((entry) =>
+        ["PLN Indonesia Power", "Excelsis Learning Center"].some((token) =>
+          entry.company.includes(token),
+        ),
+      )
+      .flatMap((entry) =>
+        entry.positions.map((position) => ({
+          key: `${entry.company}-${position.role}-${position.period}`,
+          period: position.period,
+          role: position.role,
+          org: entry.company,
+          details: position.glimpse,
+        })),
+      );
+
+    const organizationRows = experienceData
+      .filter(
+        (entry) =>
+          !entry.company.includes("Institut Teknologi Bandung") &&
+          !["PLN Indonesia Power", "Excelsis Learning Center"].some((token) =>
+            entry.company.includes(token),
+          ),
+      )
+      .flatMap((entry) =>
+        entry.positions.map((position) => ({
+          key: `${entry.company}-${position.role}-${position.period}`,
+          period: position.period,
+          role: position.role,
+          org: entry.company,
+          details: position.glimpse,
+        })),
+      );
+
+    return [
+      { title: "Education", rows: educationRows },
+      { title: "Experience", rows: experienceRows },
+      { title: "Organizations", rows: organizationRows },
+    ];
+  }, []);
+
   return (
-    <section id="about" className="w-full max-w-4xl mx-auto px-6 py-32">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-        
+    <section id="about" className="w-full max-w-[92rem] mx-auto px-5 md:px-6 py-32">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
         <div className="md:col-span-4 transition-all duration-1000 starting:opacity-0 starting:translate-y-8">
-          <h2 className="text-3xl font-bold tracking-tight sticky top-32">About</h2>
-        </div>
-
-        <div className="md:col-span-8 flex flex-col gap-16 transition-all duration-1000 delay-100 starting:opacity-0 starting:translate-y-8">
-          
-          {/* Bio section */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">Bio</h3>
-            <p className="text-[var(--foreground)]/80 leading-relaxed text-lg">
-              I am a Generalist at the intersection of Mechanical Engineering and Software. 
-              My background engineering physical systems has fostered a deep appreciation for structure and logic, 
-              which I now apply to crafting robust, high-performance digital experiences. 
-              I specialize in bridging the gap between hardware constraints and software scalability.
-            </p>
-          </div>
-
-          {/* Education section */}
-          <div>
-            <h3 className="text-xl font-bold mb-6">Education</h3>
-            <div className="border-l border-[var(--foreground)]/20 pl-6 relative">
-              <div className="absolute w-2 h-2 bg-[var(--accent)] rounded-full -left-[4.5px] top-2" />
-              <h4 className="text-lg font-bold">Institut Teknologi Bandung</h4>
-              <p className="text-sm font-medium mb-2 opacity-60">Mechanical Engineering</p>
-              <p className="text-[var(--foreground)]/80 text-sm">
-                Focus on thermodynamics, fluid mechanics, and system design, establishing a rigorous 
-                analytical framework used throughout my career.
+          <div className="sticky top-24 space-y-8 pr-0 md:pr-8">
+            <h2 className="font-display font-extrabold text-6xl md:text-7xl leading-none">About</h2>
+            <div className="relative aspect-[4/5] border-y border-border bg-surface/20 overflow-hidden">
+              <Image
+                src="/me_photo.jpeg"
+                alt="Portrait of Adi Haditya Nursyam"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover object-center"
+                priority
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/85 to-transparent p-5">
+                <p className="font-mono-ui text-[11px] uppercase tracking-[0.1em] text-accent">
+                  Adi Haditya Nursyam
+                </p>
+              </div>
+            </div>
+            <div className="space-y-4">
+              {aboutData.bio.map((paragraph) => (
+                <p key={paragraph} className="text-[color:var(--text)]/90 leading-relaxed text-[0.98rem]">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+            <div className="border-t border-border pt-4 space-y-1">
+              <p className="font-mono-ui text-[11px] tracking-[0.1em] uppercase text-accent">
+                Focus
+              </p>
+              <p className="text-[color:var(--muted)] text-sm">
+                mechanical systems + modern web architecture
               </p>
             </div>
           </div>
+        </div>
 
-          {/* Experience section */}
-          <div>
-            <h3 className="text-xl font-bold mb-10">Experience</h3>
-            <div className="flex flex-col gap-14">
-              {experienceData.map((exp, index) => (
-                <div key={index} className="flex flex-col gap-8">
-                  <div>
-                    <h4 className="text-2xl font-bold tracking-tight">{exp.company}</h4>
-                    {exp.location && (
-                      <p className="text-sm font-medium opacity-60 mt-1">{exp.location}</p>
+        <div className="md:col-span-8 flex flex-col gap-10 transition-all duration-1000 delay-100 starting:opacity-0 starting:translate-y-8">
+          <div className="pt-1 md:pt-2">
+            <h3 className="font-display font-bold text-5xl mb-8">Timeline</h3>
+            <motion.div
+              variants={container}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-100px" }}
+              className="space-y-8"
+            >
+              {groupedRows.map((group) => {
+                const isGroupOpen = openSection[group.title];
+                return (
+                  <div key={group.title} className="border-t border-border pt-3">
+                    <button
+                      onClick={() =>
+                        setOpenSection((prev) => ({
+                          ...prev,
+                          [group.title]: !prev[group.title],
+                        }))
+                      }
+                      className="cursor-hit w-full flex items-center justify-between pb-2"
+                    >
+                      <span className="font-mono-ui text-[11px] uppercase tracking-[0.1em] text-accent">
+                        {group.title}
+                      </span>
+                      <ChevronDown
+                        className={`w-4 h-4 text-accent transition-transform ${isGroupOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    {isGroupOpen && (
+                      <div className="space-y-0">
+                        {group.rows.map((row) => {
+                          const isOpen = openRole === row.key;
+                          return (
+                            <motion.div
+                              key={row.key}
+                              variants={item}
+                              className="border-t"
+                              style={{ borderTop: "0.5px solid var(--border)" }}
+                            >
+                              <button
+                                onClick={() => setOpenRole(isOpen ? null : row.key)}
+                                className="cursor-hit w-full grid grid-cols-[130px_1fr] gap-4 py-5 text-left"
+                              >
+                                <p className="font-mono-ui text-[11px] tracking-[0.1em] uppercase text-[color:var(--muted)]">
+                                  {row.period}
+                                </p>
+                                <div className="space-y-1">
+                                  <p className="font-display font-semibold text-2xl text-[color:var(--text)] leading-tight">
+                                    {row.role}
+                                  </p>
+                                  <p className="text-sm text-[color:var(--muted)]">{row.org}</p>
+                                  <p
+                                    className={`text-sm text-[color:var(--text)]/80 leading-relaxed overflow-hidden transition-all duration-300 ${
+                                      isOpen ? "max-h-20 mt-2" : "max-h-0"
+                                    }`}
+                                  >
+                                    {row.details}
+                                  </p>
+                                </div>
+                              </button>
+                            </motion.div>
+                          );
+                        })}
+                      </div>
                     )}
                   </div>
-                  
-                  <motion.div 
-                    variants={container}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: "-100px" }}
-                    className={`relative flex flex-col gap-8 ml-2 ${
-                      exp.positions.length > 1 ? "border-l border-[#8E8D7A]/40 pl-8" : "pl-8"
-                    }`}
-                  >
-                    {exp.positions.map((pos, posIndex) => (
-                      <motion.div key={posIndex} variants={item} className="relative group">
-                        {/* Timeline dot */}
-                        <div className={`absolute w-2.5 h-2.5 bg-[#8E8D7A] rounded-full top-2 transition-transform duration-300 group-hover:scale-150 ${
-                          exp.positions.length > 1 ? "-left-[37px]" : "-left-[37px]"
-                        }`} />
-                        
-                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-                          <h5 className="text-lg font-bold">{pos.role}</h5>
-                          <span className="text-sm font-medium text-[var(--accent)] whitespace-nowrap bg-[var(--foreground)]/5 px-2 py-1 rounded-sm">
-                            {pos.period}
-                          </span>
-                        </div>
-                        <p className="text-[var(--foreground)]/80 text-sm leading-relaxed">
-                          {pos.glimpse}
-                        </p>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                </div>
-              ))}
-            </div>
+                );
+              })}
+            </motion.div>
           </div>
-
         </div>
       </div>
     </section>

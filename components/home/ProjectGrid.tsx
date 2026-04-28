@@ -21,56 +21,72 @@ const itemVariants: Variants = {
 };
 
 export function ProjectGrid() {
+  const getLayoutClass = (index: number) => {
+    if (index === 0) return "md:col-span-12";
+    if (index === 1) return "md:col-span-7";
+    if (index === 2) return "md:col-span-5";
+    return "md:col-span-6";
+  };
+
   return (
-    <section id="work" className="w-full max-w-[90rem] mx-auto px-6 py-32">
-      <h2 className="text-4xl md:text-5xl font-bold mb-20 tracking-tight transition-all duration-1000 starting:opacity-0 starting:translate-y-8">
+    <section id="work" className="w-full max-w-[92rem] mx-auto px-5 md:px-6 py-32">
+      <h2 className="font-display font-extrabold text-6xl md:text-8xl mb-4 tracking-tight transition-all duration-1000 starting:opacity-0 starting:translate-y-8">
         Selected Work
       </h2>
+      <div className="h-px bg-border mb-12" />
       <motion.div 
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16"
+        className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10"
       >
-        {projectsData.map((project) => (
+        {projectsData.map((project, index) => (
           <motion.div
             key={project.id}
             variants={itemVariants}
+            className={`${getLayoutClass(index)} relative border-t border-border pt-4 md:pt-5`}
           >
+            <span className="pointer-events-none absolute -top-4 -left-1 z-0 font-display font-extrabold text-[6rem] md:text-[8rem] leading-none text-card select-none">
+              {String(index + 1).padStart(2, "0")}
+            </span>
             <Link
               href={`/work/${project.id}`}
-              className="group flex flex-col gap-6 p-4 -m-4 rounded-xl transition-colors duration-500 hover:bg-[#8E8D7A]/10"
+              className="cursor-hit group relative z-10 block"
             >
-              {/* Image Container */}
-              <div className="relative w-full aspect-[16/10] overflow-hidden bg-[var(--foreground)]/5 rounded-lg">
+              <span className="absolute top-4 left-4 z-20 text-[11px] px-2 py-1 bg-background/65 font-mono-ui uppercase tracking-[0.1em] text-accent">
+                {project.category}
+              </span>
+
+              <div
+                className={`relative w-full overflow-hidden border border-border ${index === 0 ? "aspect-[16/7]" : "aspect-[16/10]"}`}
+              >
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  style={{ viewTransitionName: `project-img-${project.id}` }}
+                  className="object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:[filter:saturate(1)_brightness(1)]"
+                  style={{ filter: "saturate(0.4) brightness(0.9)", viewTransitionName: `project-img-${project.id}` }}
                 />
-              </div>
-
-              {/* Text Content */}
-              <div className="flex flex-col gap-2 px-2">
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold tracking-widest uppercase opacity-60">
-                  <span>{project.category}</span>
-                  <span className="w-1 h-1 rounded-full bg-current opacity-50" />
-                  <div className="flex gap-2">
-                    {project.stack.join(" · ")}
+                <div className="absolute inset-0 bg-[rgba(15,16,20,0.85)] opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-6">
+                  <div className="flex items-center justify-between">
+                    <div className="font-mono-ui text-[11px] uppercase tracking-[0.1em] text-accent2">
+                      {project.stack.join(" · ")}
+                    </div>
+                    <span className="text-accent2 text-xl">↗</span>
                   </div>
                 </div>
-                
+              </div>
+
+              <div className="flex flex-col gap-2 pt-4 md:pt-5">
                 <h3 
-                  className="text-3xl font-bold tracking-tight text-[#2D2926] dark:text-[#F5F5F0]"
+                  className="font-display font-bold text-4xl md:text-5xl tracking-tight text-foreground"
                   style={{ viewTransitionName: `project-title-${project.id}` }}
                 >
                   {project.title}
                 </h3>
                 
-                <p className="text-lg leading-relaxed text-[var(--foreground)]/80 line-clamp-2 mt-1">
+                <p className="text-[0.98rem] md:text-lg leading-relaxed text-[color:var(--muted)] line-clamp-2 mt-1">
                   {project.description}
                 </p>
               </div>
